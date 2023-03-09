@@ -21,7 +21,7 @@ struct Movies: Codable {
 }
 
 // MARK: - Result
-struct MovieResult: Codable, HorizontalMovieCellProtocol {
+struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol {
     
     let adult: Bool?
     let backdropPath: String?
@@ -52,8 +52,10 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol {
         }
         return ""
     }
-
     
+    var verticalCellImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
     
     enum CodingKeys: String, CodingKey {
         case adult

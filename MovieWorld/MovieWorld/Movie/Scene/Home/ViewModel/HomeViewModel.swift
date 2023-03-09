@@ -11,11 +11,14 @@ class HomeViewModel {
     
     let manager = HomeManager.shared
     
-    var popularItems = [MovieResult]()
-    var successCallback: (() -> ())?
-    
     var movieItems = [MovieResult]()
+    var nowPlayingItems = [MovieResult]()
+    var popularItems = [MovieResult]()
+    var topRatedItems = [MovieResult]()
+    var upcomingItems = [MovieResult]()
     
+    var successCallback: (() -> ())?
+
     func getCategory(type: MovieCategory) {
         manager.getMovies(type: type) { movies in
             if let movies = movies {
@@ -41,7 +44,7 @@ class HomeViewModel {
     func getNowPlaying() {
         manager.getMovies(type: .nowPlaying) { movies in
             if let movies = movies {
-                self.popularItems = movies.results ?? []
+                self.nowPlayingItems = movies.results ?? []
                 self.successCallback?()
             }
         } onError: { error in
@@ -52,7 +55,7 @@ class HomeViewModel {
     func getTopRated() {
         manager.getMovies(type: .topRated) { movies in
             if let movies = movies {
-                self.popularItems = movies.results ?? []
+                self.topRatedItems = movies.results ?? []
                 self.successCallback?()
             }
         } onError: { error in
@@ -63,7 +66,7 @@ class HomeViewModel {
     func getUpcoming() {
         manager.getMovies(type: .upcoming) { movies in
             if let movies = movies {
-                self.popularItems = movies.results ?? []
+                self.upcomingItems = movies.results ?? []
                 self.successCallback?()
             }
         } onError: { error in

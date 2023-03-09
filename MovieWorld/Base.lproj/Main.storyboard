@@ -87,10 +87,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CfH-s9-J7I">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CfH-s9-J7I">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="16" id="U5K-8u-AtJ">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -106,9 +104,15 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mwL-Or-tw7"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="CfH-s9-J7I" firstAttribute="trailing" secondItem="mwL-Or-tw7" secondAttribute="trailing" id="1qs-HX-saY"/>
+                            <constraint firstItem="CfH-s9-J7I" firstAttribute="leading" secondItem="mwL-Or-tw7" secondAttribute="leading" id="Iyx-zM-823"/>
+                            <constraint firstItem="CfH-s9-J7I" firstAttribute="bottom" secondItem="mwL-Or-tw7" secondAttribute="bottom" id="ieU-A6-OIy"/>
+                            <constraint firstItem="CfH-s9-J7I" firstAttribute="top" secondItem="mwL-Or-tw7" secondAttribute="top" id="l4K-9F-vuK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wDh-sx-PIk">
-                        <barButtonItem key="rightBarButtonItem" image="list.dash" catalog="system" style="plain" id="BjU-to-0fH">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" style="plain" id="BjU-to-0fH">
                             <connections>
                                 <action selector="showFilterButtonPressed:" destination="UX1-TR-xVw" id="MOW-fb-AQq"/>
                             </connections>
@@ -194,7 +198,6 @@
     <resources>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="list.bullet.clipboard" catalog="system" width="103" height="128"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
