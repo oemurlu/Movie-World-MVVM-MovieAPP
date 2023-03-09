@@ -18,7 +18,7 @@ enum MovieCategory {
 enum HomeEndPoint: String {
     case nowPlaying = "movie/now_playing?"
     case popular = "movie/popular?"
-    case topRated = "movie/topRated?"
+    case topRated = "movie/top_rated?"
     case upcoming = "movie/upcoming?"
     
     var path: String {
@@ -28,7 +28,7 @@ enum HomeEndPoint: String {
         case .popular:
             return NetworkHelper.shared.requestUrl(url: HomeEndPoint.popular.rawValue)
         case .topRated:
-            return NetworkHelper.shared.requestUrl(url: HomeEndPoint.popular.rawValue)
+            return NetworkHelper.shared.requestUrl(url: HomeEndPoint.topRated.rawValue)
         case .upcoming:
             return NetworkHelper.shared.requestUrl(url: HomeEndPoint.upcoming.rawValue)
         }

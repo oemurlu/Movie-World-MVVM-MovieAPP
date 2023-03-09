@@ -108,7 +108,11 @@
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                     </view>
                     <navigationItem key="navigationItem" id="wDh-sx-PIk">
-                        <barButtonItem key="rightBarButtonItem" image="list.dash" catalog="system" style="plain" id="BjU-to-0fH"/>
+                        <barButtonItem key="rightBarButtonItem" image="list.dash" catalog="system" style="plain" id="BjU-to-0fH">
+                            <connections>
+                                <action selector="showFilterButtonPressed:" destination="UX1-TR-xVw" id="MOW-fb-AQq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="CfH-s9-J7I" id="TSA-C0-e1Z"/>
@@ -117,6 +121,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhV-ha-zSZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="820.61068702290072" y="-806.33802816901414"/>
+        </scene>
+        <!--Filter Controller-->
+        <scene sceneID="cIu-kv-qIX">
+            <objects>
+                <viewController storyboardIdentifier="FilterController" id="LMd-eR-jMu" customClass="FilterController" customModule="MovieWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xXU-CY-uuk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="baJ-M5-qi4">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LMd-eR-jMu" id="bX7-Jz-fnP"/>
+                                    <outlet property="delegate" destination="LMd-eR-jMu" id="18V-TU-rfG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iBP-tY-aUy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="baJ-M5-qi4" firstAttribute="bottom" secondItem="iBP-tY-aUy" secondAttribute="bottom" id="AtU-66-New"/>
+                            <constraint firstItem="baJ-M5-qi4" firstAttribute="top" secondItem="iBP-tY-aUy" secondAttribute="top" id="Mnv-mq-VTk"/>
+                            <constraint firstItem="baJ-M5-qi4" firstAttribute="leading" secondItem="iBP-tY-aUy" secondAttribute="leading" id="u5T-2L-EHW"/>
+                            <constraint firstItem="baJ-M5-qi4" firstAttribute="trailing" secondItem="iBP-tY-aUy" secondAttribute="trailing" id="zu3-lj-FNe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="baJ-M5-qi4" id="QcL-DE-hiQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxq-pA-JjA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1707.6335877862596" y="-806.33802816901414"/>
         </scene>
         <!--Watch List-->
         <scene sceneID="P3A-9Y-A0g">

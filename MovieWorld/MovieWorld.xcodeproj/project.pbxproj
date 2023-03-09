@@ -12,6 +12,12 @@
 		B650995129B756F90079BD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650994F29B756F90079BD03 /* Main.storyboard */; };
 		B650995329B756FA0079BD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B650995229B756FA0079BD03 /* Assets.xcassets */; };
 		B650995629B756FA0079BD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B650995429B756FA0079BD03 /* LaunchScreen.storyboard */; };
+		B654D8BC29B9B5440063295C /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8BB29B9B5440063295C /* FilterController.swift */; };
+		B654D8BF29B9B5C60063295C /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8BD29B9B5C60063295C /* FilterTableViewCell.swift */; };
+		B654D8C029B9B5C60063295C /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B654D8BE29B9B5C60063295C /* FilterTableViewCell.xib */; };
+		B654D8C329B9B8C80063295C /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = B654D8C229B9B8C80063295C /* PanModal */; };
+		B654D8C529B9BAEF0063295C /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8C429B9BAEF0063295C /* FilterViewModel.swift */; };
+		B654D8C729B9BB1B0063295C /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8C629B9BB1B0063295C /* FilterModel.swift */; };
 		B681C59629B778A30030406B /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59529B778A30030406B /* HomeController.swift */; };
 		B681C59829B778E90030406B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59729B778E90030406B /* HomeViewModel.swift */; };
 		B681C59A29B7790E0030406B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59929B7790E0030406B /* SearchController.swift */; };
@@ -35,6 +41,11 @@
 		B650995229B756FA0079BD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B650995529B756FA0079BD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B650995729B756FA0079BD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B654D8BB29B9B5440063295C /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		B654D8BD29B9B5C60063295C /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		B654D8BE29B9B5C60063295C /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
+		B654D8C429B9BAEF0063295C /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		B654D8C629B9BB1B0063295C /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		B681C59529B778A30030406B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		B681C59729B778E90030406B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B681C59929B7790E0030406B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -55,6 +66,7 @@
 			files = (
 				B6D433D929B799DC00AABFB0 /* SDWebImage in Frameworks */,
 				B6D433D629B799C600AABFB0 /* Alamofire in Frameworks */,
+				B654D8C329B9B8C80063295C /* PanModal in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D433DA29B79D3600AABFB0 /* Movies.swift */,
+				B654D8C629B9BB1B0063295C /* FilterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				B681C59529B778A30030406B /* HomeController.swift */,
+				B654D8BB29B9B5440063295C /* FilterController.swift */,
 				B681C59D29B77EFF0030406B /* Cells */,
 			);
 			path = View;
@@ -182,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				B681C59729B778E90030406B /* HomeViewModel.swift */,
+				B654D8C429B9BAEF0063295C /* FilterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -231,6 +246,8 @@
 			children = (
 				B681C59E29B77FA90030406B /* HorizontalMovieCell.swift */,
 				B681C59F29B77FA90030406B /* HorizontalMovieCell.xib */,
+				B654D8BD29B9B5C60063295C /* FilterTableViewCell.swift */,
+				B654D8BE29B9B5C60063295C /* FilterTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -272,6 +289,7 @@
 			packageProductDependencies = (
 				B6D433D529B799C600AABFB0 /* Alamofire */,
 				B6D433D829B799DC00AABFB0 /* SDWebImage */,
+				B654D8C229B9B8C80063295C /* PanModal */,
 			);
 			productName = MovieWorld;
 			productReference = B650994629B756F90079BD03 /* MovieWorld.app */;
@@ -304,6 +322,7 @@
 			packageReferences = (
 				B6D433D429B799C600AABFB0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				B6D433D729B799DC00AABFB0 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				B654D8C129B9B8C80063295C /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = B650994729B756F90079BD03 /* Products */;
 			projectDirPath = "";
@@ -322,6 +341,7 @@
 				B650995629B756FA0079BD03 /* LaunchScreen.storyboard in Resources */,
 				B650995329B756FA0079BD03 /* Assets.xcassets in Resources */,
 				B681C5A129B77FA90030406B /* HorizontalMovieCell.xib in Resources */,
+				B654D8C029B9B5C60063295C /* FilterTableViewCell.xib in Resources */,
 				B650995129B756F90079BD03 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,9 +355,13 @@
 			files = (
 				B6D433CC29B791BA00AABFB0 /* HomeManager.swift in Sources */,
 				B650994A29B756F90079BD03 /* AppDelegate.swift in Sources */,
+				B654D8BC29B9B5440063295C /* FilterController.swift in Sources */,
+				B654D8C729B9BB1B0063295C /* FilterModel.swift in Sources */,
 				B6D433DB29B79D3600AABFB0 /* Movies.swift in Sources */,
 				B6D433D129B7922A00AABFB0 /* NetworkManager.swift in Sources */,
+				B654D8BF29B9B5C60063295C /* FilterTableViewCell.swift in Sources */,
 				B681C59A29B7790E0030406B /* SearchController.swift in Sources */,
+				B654D8C529B9BAEF0063295C /* FilterViewModel.swift in Sources */,
 				B6D433D329B7923300AABFB0 /* NetworkHelper.swift in Sources */,
 				B681C5A029B77FA90030406B /* HorizontalMovieCell.swift in Sources */,
 				B650994C29B756F90079BD03 /* SceneDelegate.swift in Sources */,
@@ -564,6 +588,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B654D8C129B9B8C80063295C /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B6D433D429B799C600AABFB0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -583,6 +615,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B654D8C229B9B8C80063295C /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B654D8C129B9B8C80063295C /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
+		};
 		B6D433D529B799C600AABFB0 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B6D433D429B799C600AABFB0 /* XCRemoteSwiftPackageReference "Alamofire" */;

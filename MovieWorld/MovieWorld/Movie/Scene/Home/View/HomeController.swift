@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+
 class HomeController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,6 +20,16 @@ class HomeController: UIViewController {
         
         collectionSetup()
         viewModelConfiguration()
+    }
+    
+    @IBAction func showFilterButtonPressed(_ sender: UIBarButtonItem) {
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(FilterController.self)") as! FilterController
+        controller.selectionCallback = { category in
+            self.viewModel.getCategory(type: category)
+        }
+        self.presentPanModal(controller)
+
     }
     
     private func collectionSetup() {
@@ -50,5 +61,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         return CGSize(width: collectionView.frame.width, height: 150)
     }
 }
+
 
 
