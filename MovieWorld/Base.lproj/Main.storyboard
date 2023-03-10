@@ -52,14 +52,51 @@
                     <view key="view" contentMode="scaleToFill" id="woV-fQ-bZO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBd-5z-N80">
+                                <rect key="frame" x="16" y="159" width="361" height="610"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mbZ-i7-KW3">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aPa-rT-gaD" id="b6g-zZ-w19"/>
+                                    <outlet property="delegate" destination="aPa-rT-gaD" id="p7P-xV-mNH"/>
+                                </connections>
+                            </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ZbU-tx-Pp2">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="aPa-rT-gaD" id="Bf4-JD-nnd"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yjx-Qv-Imo"/>
-                        <color key="backgroundColor" systemColor="tintColor"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="ZbU-tx-Pp2" firstAttribute="leading" secondItem="yjx-Qv-Imo" secondAttribute="leading" id="1Eb-aM-UI4"/>
+                            <constraint firstItem="gBd-5z-N80" firstAttribute="top" secondItem="ZbU-tx-Pp2" secondAttribute="bottom" id="CDe-Mt-t26"/>
+                            <constraint firstItem="yjx-Qv-Imo" firstAttribute="trailing" secondItem="gBd-5z-N80" secondAttribute="trailing" constant="16" id="E4m-5M-LCV"/>
+                            <constraint firstItem="gBd-5z-N80" firstAttribute="leading" secondItem="yjx-Qv-Imo" secondAttribute="leading" constant="16" id="OuA-W2-Lry"/>
+                            <constraint firstItem="gBd-5z-N80" firstAttribute="bottom" secondItem="yjx-Qv-Imo" secondAttribute="bottom" id="d5k-Jv-bQG"/>
+                            <constraint firstItem="ZbU-tx-Pp2" firstAttribute="top" secondItem="yjx-Qv-Imo" secondAttribute="top" id="dKa-Pg-72u"/>
+                            <constraint firstItem="ZbU-tx-Pp2" firstAttribute="trailing" secondItem="yjx-Qv-Imo" secondAttribute="trailing" id="j2J-Zd-6bM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c0O-F9-Cnk"/>
+                    <connections>
+                        <outlet property="collectionView" destination="gBd-5z-N80" id="Tmp-b7-Vre"/>
+                        <outlet property="searchBar" destination="ZbU-tx-Pp2" id="nsB-Sk-fax"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYi-iA-Etx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="822" y="-2"/>
+            <point key="canvasLocation" x="820.61068702290072" y="-2.1126760563380285"/>
         </scene>
         <!--Home-->
         <scene sceneID="aTP-56-xon">
@@ -207,9 +244,6 @@
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tintColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

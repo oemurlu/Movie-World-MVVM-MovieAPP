@@ -22,6 +22,11 @@
 		B654D8CC29B9F4430063295C /* HomeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B654D8CA29B9F4430063295C /* HomeHeader.xib */; };
 		B654D8CF29B9F7CB0063295C /* VerticalMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8CD29B9F7CB0063295C /* VerticalMovieCell.swift */; };
 		B654D8D029B9F7CB0063295C /* VerticalMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B654D8CE29B9F7CB0063295C /* VerticalMovieCell.xib */; };
+		B654D8D229BB71560063295C /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8D129BB71560063295C /* SearchViewModel.swift */; };
+		B654D8D529BB718C0063295C /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8D429BB718C0063295C /* SearchManager.swift */; };
+		B654D8D729BB71950063295C /* SearchHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8D629BB71950063295C /* SearchHelper.swift */; };
+		B654D8DB29BB74F40063295C /* SearchMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654D8D929BB74F40063295C /* SearchMovieCell.swift */; };
+		B654D8DC29BB74F40063295C /* SearchMovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B654D8DA29BB74F40063295C /* SearchMovieCell.xib */; };
 		B681C59629B778A30030406B /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59529B778A30030406B /* HomeController.swift */; };
 		B681C59829B778E90030406B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59729B778E90030406B /* HomeViewModel.swift */; };
 		B681C59A29B7790E0030406B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B681C59929B7790E0030406B /* SearchController.swift */; };
@@ -54,6 +59,11 @@
 		B654D8CA29B9F4430063295C /* HomeHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeader.xib; sourceTree = "<group>"; };
 		B654D8CD29B9F7CB0063295C /* VerticalMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalMovieCell.swift; sourceTree = "<group>"; };
 		B654D8CE29B9F7CB0063295C /* VerticalMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerticalMovieCell.xib; sourceTree = "<group>"; };
+		B654D8D129BB71560063295C /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		B654D8D429BB718C0063295C /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
+		B654D8D629BB71950063295C /* SearchHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHelper.swift; sourceTree = "<group>"; };
+		B654D8D929BB74F40063295C /* SearchMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieCell.swift; sourceTree = "<group>"; };
+		B654D8DA29BB74F40063295C /* SearchMovieCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchMovieCell.xib; sourceTree = "<group>"; };
 		B681C59529B778A30030406B /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		B681C59729B778E90030406B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B681C59929B7790E0030406B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -138,6 +148,24 @@
 			path = Header;
 			sourceTree = "<group>";
 		};
+		B654D8D329BB717C0063295C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B654D8D429BB718C0063295C /* SearchManager.swift */,
+				B654D8D629BB71950063295C /* SearchHelper.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B654D8D829BB74DA0063295C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B654D8D929BB74F40063295C /* SearchMovieCell.swift */,
+				B654D8DA29BB74F40063295C /* SearchMovieCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		B681C58329B7605E0030406B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +199,7 @@
 		B681C58729B76AAF0030406B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B654D8D129BB71560063295C /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -178,6 +207,7 @@
 		B681C58829B76AB70030406B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B654D8D829BB74DA0063295C /* Cells */,
 				B681C59929B7790E0030406B /* SearchController.swift */,
 			);
 			path = View;
@@ -255,6 +285,7 @@
 			children = (
 				B6D433CF29B7921D00AABFB0 /* Core */,
 				B6D433CA29B791AB00AABFB0 /* Home */,
+				B654D8D329BB717C0063295C /* Search */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -360,6 +391,7 @@
 			files = (
 				B650995629B756FA0079BD03 /* LaunchScreen.storyboard in Resources */,
 				B654D8CC29B9F4430063295C /* HomeHeader.xib in Resources */,
+				B654D8DC29BB74F40063295C /* SearchMovieCell.xib in Resources */,
 				B650995329B756FA0079BD03 /* Assets.xcassets in Resources */,
 				B681C5A129B77FA90030406B /* HorizontalMovieCell.xib in Resources */,
 				B654D8C029B9B5C60063295C /* FilterTableViewCell.xib in Resources */,
@@ -375,12 +407,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B654D8DB29BB74F40063295C /* SearchMovieCell.swift in Sources */,
 				B654D8CF29B9F7CB0063295C /* VerticalMovieCell.swift in Sources */,
 				B6D433CC29B791BA00AABFB0 /* HomeManager.swift in Sources */,
 				B650994A29B756F90079BD03 /* AppDelegate.swift in Sources */,
 				B654D8BC29B9B5440063295C /* FilterController.swift in Sources */,
+				B654D8D229BB71560063295C /* SearchViewModel.swift in Sources */,
 				B654D8C729B9BB1B0063295C /* FilterModel.swift in Sources */,
+				B654D8D729BB71950063295C /* SearchHelper.swift in Sources */,
 				B6D433DB29B79D3600AABFB0 /* Movies.swift in Sources */,
+				B654D8D529BB718C0063295C /* SearchManager.swift in Sources */,
 				B6D433D129B7922A00AABFB0 /* NetworkManager.swift in Sources */,
 				B654D8BF29B9B5C60063295C /* FilterTableViewCell.swift in Sources */,
 				B681C59A29B7790E0030406B /* SearchController.swift in Sources */,

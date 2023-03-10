@@ -21,7 +21,7 @@ struct Movies: Codable {
 }
 
 // MARK: - Result
-struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol {
+struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol {
     
     let adult: Bool?
     let backdropPath: String?
@@ -54,6 +54,10 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     var verticalCellImage: String {
+        "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
+    }
+    
+    var searchCellImage: String {
         "https://image.tmdb.org/t/p/original/\(posterPath ?? "")"
     }
     

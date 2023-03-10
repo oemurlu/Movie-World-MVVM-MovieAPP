@@ -13,8 +13,9 @@ class NetworkManager {
     
     func request<T: Codable>(path: String, onSuccess: @escaping (T) -> (), onError: (AFError) -> () ) {
         AF.request(path, encoding: JSONEncoding.default).validate().responseDecodable(of: T.self) { response in
-            guard let model = response.value else { print("oeabi\(response.error as Any)"); return}
+            guard let model = response.value else { print("oeabi network manager \(response.error as Any)"); return}
             onSuccess(model)
         }
     }
 }
+
