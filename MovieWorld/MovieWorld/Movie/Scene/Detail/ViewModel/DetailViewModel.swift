@@ -1,27 +1,30 @@
+////
+////  DetailViewModel.swift
+////  MovieWorld
+////
+////  Created by Osman Emre Ömürlü on 13.03.2023.
+////
 //
-//  DetailViewModel.swift
-//  MovieWorld
+//import Foundation
 //
-//  Created by Osman Emre Ömürlü on 13.03.2023.
+//class DetailViewModel {
+//    
+//    let manager = DetailManager.shared
+//    
+//    var id: Int!
+//    var detailMovie = [DetailResult]()
+//    var successCallback: (() -> ())?
+//    
+//    func getDetail() {
+//        print("detailViewModel oemoto getDetail calisiyor")
+//        manager.getDetailItems(id: id) { detailMovie in
+//            if let detailMovie = detailMovie {
+//                self.detailMovie = detailMovie.results ?? []
+//                self.successCallback?()
+//            }
+//        } onError: { error in
+//            print("osman error at DetailViewModel getDetail: \(error)")
+//        }
+//    }
 //
-
-import Foundation
-
-class DetailViewModel {
-    
-    let manager = DetailManager.shared
-    
-    var id: Int!
-    var detailMovie = [DetailResult]()
-    var successCallback: (() -> ())?
-    
-    func getDetail() {
-        manager.getDetailItems(id: id) { detailMovie in
-            if let detailMovie = detailMovie {
-                self.detailMovie = detailMovie.results ?? []
-            }
-        } onError: { error in
-            print("osman error at DetailViewModel getDetail: \(error)")
-        }
-    }
-}
+//}

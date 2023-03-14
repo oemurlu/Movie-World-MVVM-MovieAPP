@@ -162,6 +162,7 @@
                     <connections>
                         <outlet property="movieImage" destination="Tof-N5-uBs" id="QLh-2V-gev"/>
                         <outlet property="movieOverview" destination="yh2-7b-TDa" id="Ql2-xh-90l"/>
+                        <outlet property="movieRating" destination="SlD-ci-nJr" id="awy-qX-sXv"/>
                         <outlet property="movieRelease" destination="Mtl-VR-Emv" id="sJL-EY-dHk"/>
                         <outlet property="movieTitle" destination="dkP-lt-9nZ" id="MZl-yx-HO9"/>
                     </connections>

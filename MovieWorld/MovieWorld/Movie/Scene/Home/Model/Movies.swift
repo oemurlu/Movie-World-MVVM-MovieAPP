@@ -35,11 +35,8 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     let voteCount: Int?
 
     var horizontalCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
-    
     var horizontalCellTitle: String { originalTitle ?? "" }
-    
     var horizontalCellRelease: String { releaseDate ?? "" }
-    
     var horizontalCellRating: String {
         if let voteAverage = voteAverage {
             return "\(voteAverage)"
@@ -48,7 +45,6 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     var verticalCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
-    
     var searchCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
     
     // - detail controller protocol
@@ -60,8 +56,8 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
         return String(releaseDate?.prefix(prefixLength) ?? "")
         
     }
-    var detailViewOverview: String { overview ?? ""}
-    var detailViewId: String { "\(id ?? 1)" }
+    var detailViewRating: String { "\(voteAverage ?? 0)" }
+    var detailViewOverview: String { overview ?? "" }
     //--
     
     

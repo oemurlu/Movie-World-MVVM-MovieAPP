@@ -14,8 +14,7 @@ class SearchViewModel {
     
     var successCallback: (() -> ())?
     var textIsEmptyCallback: (() -> ())?
-    var searchMovieItems = [DetailResult]()
-//    var topRatedItems = [MovieResult]()
+    var searchMovieItems = [MovieResult]()
     var text = ""
     
     func getMovies() {
