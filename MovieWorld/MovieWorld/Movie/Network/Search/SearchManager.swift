@@ -9,16 +9,16 @@ import Foundation
 import Alamofire
 
 protocol SearchManagerProtocol {
-    func getSearchResults(text: String, onSuccess: @escaping(Movies?) -> (), onError: @escaping(AFError) -> ())
+    func getSearchResults(text: String, onSuccess: @escaping(MovieDetail?) -> (), onError: @escaping(AFError) -> ())
 }
 
 class SearchManager: SearchManagerProtocol {
     
     static let shared = SearchManager()
     
-    func getSearchResults(text: String, onSuccess: @escaping (Movies?) -> (), onError: @escaping(AFError) -> ()) {
+    func getSearchResults(text: String, onSuccess: @escaping (MovieDetail?) -> (), onError: @escaping(AFError) -> ()) {
         let url = SearchEndPoint.search.path + "&query=\(text)"
-        NetworkManager.shared.request(path: url) { (response: Movies) in
+        NetworkManager.shared.request(path: url) { (response: MovieDetail) in
             onSuccess(response)
         } onError: { error in
             onError(error)

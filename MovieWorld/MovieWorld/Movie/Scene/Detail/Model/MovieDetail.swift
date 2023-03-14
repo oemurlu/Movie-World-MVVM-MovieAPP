@@ -1,16 +1,16 @@
 //
-//  Movies.swift
+//  MovieDetail.swift
 //  MovieWorld
 //
-//  Created by Osman Emre Ömürlü on 7.03.2023.
+//  Created by Osman Emre Ömürlü on 13.03.2023.
 //
 
 import Foundation
 
-// MARK: - Movie
-struct Movies: Codable {
+// MARK: - MovieDetail
+struct MovieDetail: Codable {
     let page: Int?
-    let results: [MovieResult]?
+    let results: [DetailResult]?
     let totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -21,7 +21,7 @@ struct Movies: Codable {
 }
 
 // MARK: - Result
-struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProtocol, SearchMovieCellProtocol, DetailControllerProtocol {
+struct DetailResult: Codable, DetailControllerProtocol, SearchMovieCellProtocol {
     
     let adult: Bool?
     let backdropPath: String?
@@ -29,27 +29,16 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     let id: Int?
     let originalLanguage, originalTitle, overview: String?
     let popularity: Double?
-    let posterPath, releaseDate, title: String?
+    let posterPath: String?
+    let releaseDate, title: String?
     let video: Bool?
     let voteAverage: Double?
     let voteCount: Int?
 
-    var horizontalCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
-    
-    var horizontalCellTitle: String { originalTitle ?? "" }
-    
-    var horizontalCellRelease: String { releaseDate ?? "" }
-    
-    var horizontalCellRating: String {
-        if let voteAverage = voteAverage {
-            return "\(voteAverage)"
-        }
-        return ""
-    }
-    
-    var verticalCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
-    
+    //
     var searchCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
+    //
+    
     
     // - detail controller protocol
     var detailViewImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
@@ -59,6 +48,9 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     var detailViewId: String { "\(id ?? 1)" }
     //--
     
+    
+
+
     
     enum CodingKeys: String, CodingKey {
         case adult
@@ -75,3 +67,4 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
         case voteCount = "vote_count"
     }
 }
+

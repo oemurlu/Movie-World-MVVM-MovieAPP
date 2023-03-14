@@ -53,13 +53,19 @@ extension SearchController: UISearchBarDelegate {
 
 extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.movieItems.count
+        return viewModel.searchMovieItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(SearchMovieCell.self)", for: indexPath) as! SearchMovieCell
-        cell.configure(data: viewModel.movieItems[indexPath.row])
+        cell.configure(data: viewModel.searchMovieItems[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "\(DetailController.self)") as! DetailController
+        self.show(vc, sender: nil)
+        vc.configure(data: viewModel.searchMovieItems[indexPath.item])
     }
     
     // her item arasi bosluk
@@ -72,11 +78,4 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         let widthPerItem = collectionView.frame.width / 3 - gridLayout.minimumInteritemSpacing
         return CGSize(width: widthPerItem, height: widthPerItem * 3 / 2)
     }
-    
-//
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 3
-//    }
-    
-    
 }

@@ -43,6 +43,12 @@ class HomeController: UIViewController {
             self?.collectionView.reloadData()
         }
     }
+    
+    private func loadDetailVC() -> DetailController {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "\(DetailController.self)") as! DetailController
+        vc.loadViewIfNeeded()
+        return vc
+    }
 }
 
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -55,6 +61,13 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(HorizontalMovieCell.self)", for: indexPath) as! HorizontalMovieCell
         cell.configure(data: viewModel.popularItems[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = loadDetailVC()
+//        vc.configure(data: viewModel.popularItems[indexPath.row])
+        vc.configure(data: viewModel.popularItems[indexPath.row])
+        show(vc, sender: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

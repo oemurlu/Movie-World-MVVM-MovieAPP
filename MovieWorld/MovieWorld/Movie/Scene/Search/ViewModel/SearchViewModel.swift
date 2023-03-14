@@ -14,14 +14,14 @@ class SearchViewModel {
     
     var successCallback: (() -> ())?
     var textIsEmptyCallback: (() -> ())?
-    var movieItems = [MovieResult]()
-    var topRatedItems = [MovieResult]()
+    var searchMovieItems = [DetailResult]()
+//    var topRatedItems = [MovieResult]()
     var text = ""
     
     func getMovies() {
         manager.getSearchResults(text: text) { movies in
             if let movies = movies {
-                self.movieItems = movies.results ?? []
+                self.searchMovieItems = movies.results ?? []
                 self.successCallback?()
             }
         } onError: { error in
