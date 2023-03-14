@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -39,7 +39,14 @@ class SearchController: UIViewController {
             self?.collectionView.reloadData()
         }
     }
+    
+    private func loadDetailVC() -> DetailController {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "\(DetailController.self)") as! DetailController
+        vc.loadViewIfNeeded()
+        return vc
+    }
 }
+
 
 extension SearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -63,9 +70,9 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "\(DetailController.self)") as! DetailController
-        self.show(vc, sender: nil)
-        vc.configure(data: viewModel.searchMovieItems[indexPath.item])
+        let vc = loadDetailVC()
+        vc.configure(data: viewModel.searchMovieItems[indexPath.row])
+        show(vc, sender: nil)
     }
     
     // her item arasi bosluk

@@ -33,10 +33,10 @@ class DetailController: UIViewController {
             }
     }
     
-    func configureDetail(id: Int) {
-        viewModel.id = id
-        viewModel.getDetail()
-    }
+//    func configureDetail(id: Int) {
+//        viewModel.id = id
+//        viewModel.getDetail()
+//    }
     
     func configure(data: DetailControllerProtocol) {
         movieImage.sd_setImage(with: URL(string: data.detailViewImage))

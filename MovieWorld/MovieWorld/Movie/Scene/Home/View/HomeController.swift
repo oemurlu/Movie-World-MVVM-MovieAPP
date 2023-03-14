@@ -65,7 +65,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = loadDetailVC()
-//        vc.configure(data: viewModel.popularItems[indexPath.row])
         vc.configure(data: viewModel.popularItems[indexPath.row])
         show(vc, sender: nil)
     }

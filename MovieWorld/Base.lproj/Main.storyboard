@@ -109,46 +109,52 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tof-N5-uBs">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="553.66666666666663"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-lt-9nZ">
-                                <rect key="frame" x="16" y="558.66666666666663" width="361" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="LnW-Sx-QqF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2022-06-13" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-VR-Emv">
-                                <rect key="frame" x="16" y="605" width="352" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkP-lt-9nZ">
+                                <rect key="frame" x="24" y="559" width="353" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yh2-7b-TDa">
-                                <rect key="frame" x="36" y="619.66666666666663" width="321" height="174.33333333333337"/>
+                                <rect key="frame" x="16" y="625.66666666666663" width="361" height="168.33333333333337"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="⭐️3.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SlD-ci-nJr">
+                                <rect key="frame" x="24" y="590" width="61" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="2022" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mtl-VR-Emv">
+                                <rect key="frame" x="102" y="590" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mxt-Cv-rqt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Tof-N5-uBs" firstAttribute="height" secondItem="KPo-Ib-LZ7" secondAttribute="height" multiplier="0.65" id="4zj-BM-TwE"/>
                             <constraint firstItem="yh2-7b-TDa" firstAttribute="top" secondItem="Mtl-VR-Emv" secondAttribute="bottom" constant="8" id="7aa-wc-IdC"/>
-                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="leading" secondItem="dkP-lt-9nZ" secondAttribute="leading" id="PTx-Iw-RMN"/>
+                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="centerY" secondItem="SlD-ci-nJr" secondAttribute="centerY" id="8GA-MB-vQe"/>
+                            <constraint firstItem="dkP-lt-9nZ" firstAttribute="leading" secondItem="Mxt-Cv-rqt" secondAttribute="leading" constant="24" id="Blz-WB-vdq"/>
+                            <constraint firstItem="SlD-ci-nJr" firstAttribute="leading" secondItem="dkP-lt-9nZ" secondAttribute="leading" id="GLh-5Y-xVh"/>
                             <constraint firstItem="Tof-N5-uBs" firstAttribute="top" secondItem="KPo-Ib-LZ7" secondAttribute="top" id="QMq-CI-iWR"/>
-                            <constraint firstItem="dkP-lt-9nZ" firstAttribute="top" secondItem="Tof-N5-uBs" secondAttribute="bottom" constant="5" id="Uin-7K-h1W"/>
-                            <constraint firstItem="dkP-lt-9nZ" firstAttribute="leading" secondItem="Mxt-Cv-rqt" secondAttribute="leading" constant="16" id="Uzl-Pn-lGb"/>
-                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="trailing" secondItem="dkP-lt-9nZ" secondAttribute="trailing" id="YBf-AV-U8j"/>
+                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="height" secondItem="SlD-ci-nJr" secondAttribute="height" multiplier="1.05" id="RdZ-DW-voP"/>
+                            <constraint firstItem="dkP-lt-9nZ" firstAttribute="top" secondItem="Tof-N5-uBs" secondAttribute="bottom" constant="12" id="Uin-7K-h1W"/>
                             <constraint firstItem="Mxt-Cv-rqt" firstAttribute="bottom" secondItem="yh2-7b-TDa" secondAttribute="bottom" constant="24" id="bUz-HM-kst"/>
                             <constraint firstAttribute="trailing" secondItem="Tof-N5-uBs" secondAttribute="trailing" id="crY-dr-Dzt"/>
-                            <constraint firstItem="yh2-7b-TDa" firstAttribute="leading" secondItem="Mxt-Cv-rqt" secondAttribute="leading" constant="36" id="jEG-1w-ugR"/>
-                            <constraint firstItem="Mxt-Cv-rqt" firstAttribute="trailing" secondItem="dkP-lt-9nZ" secondAttribute="trailing" constant="16" id="jw6-VC-wKx"/>
-                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="top" secondItem="dkP-lt-9nZ" secondAttribute="bottom" constant="5" id="mHi-uT-1qt"/>
-                            <constraint firstItem="Mxt-Cv-rqt" firstAttribute="trailing" secondItem="yh2-7b-TDa" secondAttribute="trailing" constant="36" id="te0-Qo-HxQ"/>
+                            <constraint firstItem="yh2-7b-TDa" firstAttribute="leading" secondItem="Mxt-Cv-rqt" secondAttribute="leading" constant="16" id="jEG-1w-ugR"/>
+                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="leading" secondItem="SlD-ci-nJr" secondAttribute="trailing" constant="16" id="ktj-fd-GqP"/>
+                            <constraint firstItem="Mtl-VR-Emv" firstAttribute="top" secondItem="dkP-lt-9nZ" secondAttribute="bottom" constant="4" id="mHi-uT-1qt"/>
+                            <constraint firstItem="Mxt-Cv-rqt" firstAttribute="trailing" secondItem="yh2-7b-TDa" secondAttribute="trailing" constant="16" id="te0-Qo-HxQ"/>
                             <constraint firstItem="Tof-N5-uBs" firstAttribute="leading" secondItem="Mxt-Cv-rqt" secondAttribute="leading" id="xBo-UY-Lzc"/>
                             <constraint firstItem="Mtl-VR-Emv" firstAttribute="height" secondItem="dkP-lt-9nZ" secondAttribute="height" id="xmL-jX-Ayi"/>
                         </constraints>

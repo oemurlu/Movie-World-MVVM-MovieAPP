@@ -54,7 +54,12 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     // - detail controller protocol
     var detailViewImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
     var detailViewTitle: String { originalTitle ?? "" }
-    var detailViewRelease: String { releaseDate ?? "" }
+    var detailViewRelease: String {
+        // i just wanna get year
+        let prefixLength = 4
+        return String(releaseDate?.prefix(prefixLength) ?? "")
+        
+    }
     var detailViewOverview: String { overview ?? ""}
     var detailViewId: String { "\(id ?? 1)" }
     //--
