@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterController: UIViewController {
 
@@ -20,9 +21,11 @@ class RegisterController: UIViewController {
     }
  
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        let vc = viewModel.loadLoginVC()
-        show(vc, sender: nil)
+        viewModel.createUser(email: emailTextField.text!, password: passwordTextField.text!) {
+            self.viewModel.registerUserToFirestore(email: self.emailTextField.text!) {
+                let vc = self.viewModel.loadLoginVC()
+                self.show(vc, sender: nil)
+            }
+        }
     }
-    
-    
 }
