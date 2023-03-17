@@ -1,30 +1,60 @@
-////
-////  DetailViewModel.swift
-////  MovieWorld
-////
-////  Created by Osman Emre Ömürlü on 13.03.2023.
-////
 //
-//import Foundation
+//  DetailViewModel.swift
+//  MovieWorld
 //
-//class DetailViewModel {
-//    
-//    let manager = DetailManager.shared
-//    
-//    var id: Int!
-//    var detailMovie = [DetailResult]()
-//    var successCallback: (() -> ())?
-//    
-//    func getDetail() {
-//        print("detailViewModel oemoto getDetail calisiyor")
-//        manager.getDetailItems(id: id) { detailMovie in
-//            if let detailMovie = detailMovie {
-//                self.detailMovie = detailMovie.results ?? []
-//                self.successCallback?()
-//            }
-//        } onError: { error in
-//            print("osman error at DetailViewModel getDetail: \(error)")
-//        }
-//    }
+//  Created by Osman Emre Ömürlü on 13.03.2023.
 //
-//}
+
+import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
+
+class DetailViewModel {
+    
+    private let db = Firestore.firestore()
+    private let currentUserUid = Auth.auth().currentUser?.uid
+
+    func addMovieToWatchList(movieId: Int, completion: @escaping (Bool) -> ()) {
+        let userRef = db.collection("users").document(currentUserUid ?? "undefined user")
+        
+        //watchListte urun yoksa eklenecek; varsa silinecek
+        userRef.getDocument { document, error in
+            if let document = document, document.exists {
+                if let data = document.data(), let _ = data["\(movieId)"] {
+                    userRef.updateData(["\(movieId)" : FieldValue.delete()])
+                    print("DVM addMovieToWatchList: zaten ekli, cikartildi")
+                    completion(false)
+                } else {
+                    userRef.updateData(["\(movieId)": true])
+                    print("DVM addMovieToWatchList: ekli degil, eklendi")
+                    completion(true)
+                }
+            }
+        }
+    }
+    
+    func watchLaterButtonDecision(result: Bool, completion: (String) -> ()) {
+        if result == true {
+            completion("heart.fill")
+        } else {
+            completion("heart")
+        }
+    }
+    
+    func didMovieAddedToWatchLaterList(movieId: Int, completion: @escaping (Bool) -> ()) {
+        let userRef = db.collection("users").document(currentUserUid ?? "undefined user")
+        userRef.getDocument { document, error in
+            if let document = document, document.exists {
+                if let data = document.data(), let _ = data["\(movieId)"] {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            } else {
+                print("user document does not exist")
+                completion(false)
+            }
+        }
+    }
+}

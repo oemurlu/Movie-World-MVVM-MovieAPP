@@ -58,6 +58,8 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     var detailViewRating: String { "\(voteAverage ?? 0)" }
     var detailViewOverview: String { overview ?? "" }
+    var detailViewMovieId: Int { id ?? 0}
+
     //--
     
     

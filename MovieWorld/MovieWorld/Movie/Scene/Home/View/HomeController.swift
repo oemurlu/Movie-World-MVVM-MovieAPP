@@ -20,6 +20,7 @@ class HomeController: UIViewController {
         
         collectionSetup()
         viewModelConfiguration()
+        tabBarSetup()
     }
     
     @IBAction func showFilterButtonPressed(_ sender: UIBarButtonItem) {
@@ -48,6 +49,10 @@ class HomeController: UIViewController {
         let vc = storyboard?.instantiateViewController(withIdentifier: "\(DetailController.self)") as! DetailController
         vc.loadViewIfNeeded()
         return vc
+    }
+    
+    func tabBarSetup() {
+        self.tabBarController?.navigationItem.hidesBackButton = true
     }
 }
 
