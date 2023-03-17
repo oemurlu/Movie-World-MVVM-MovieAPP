@@ -5,8 +5,27 @@
 //  Created by Osman Emre Ömürlü on 16.03.2023.
 //
 
-import Foundation
+import UIKit.UIStoryboard
+import Firebase
 
 class LoginViewModel {
+    
+    func checkUserAuth(email: String, password: String, completion: @escaping () -> () ) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                print("LVM checkUserAuth error: \(error)")
+            } else {
+                completion()
+            }
+        }
+    }
+    
+    func loadTabBar() -> UITabBarController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+//        vc.loadViewIfNeeded()
+        return vc
+    }
+    
     
 }

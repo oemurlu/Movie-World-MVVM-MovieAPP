@@ -99,6 +99,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Sign in"/>
+                                <connections>
+                                    <action selector="signInButtonPressed:" destination="mjU-2W-hfh" eventType="touchUpInside" id="dTp-I0-Jwa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nhf-tq-6Mb"/>
@@ -120,6 +123,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UnV-fP-tWq"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ztt-KB-Krh" id="QAc-9u-67Z"/>
+                        <outlet property="passwordTextField" destination="A1p-e7-wbI" id="sXY-Za-eDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qmF-v9-1tq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -195,7 +202,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="k56-d9-Up4">
             <objects>
-                <tabBarController id="nPe-fs-sGx" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="nPe-fs-sGx" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="KI7-pZ-g1F"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C91-87-iIN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>

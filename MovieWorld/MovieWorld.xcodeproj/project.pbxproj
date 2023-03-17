@@ -118,7 +118,6 @@
 		B611CE4E29C3174900B04E9B /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				B611CE6129C3374000B04E9B /* Model */,
 				B611CE5129C3177800B04E9B /* View */,
 				B611CE5029C3176500B04E9B /* ViewModel */,
 			);
@@ -164,13 +163,6 @@
 				B611CE5A29C319B300B04E9B /* LoginController.swift */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		B611CE6129C3374000B04E9B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		B650993D29B756F90079BD03 = {
