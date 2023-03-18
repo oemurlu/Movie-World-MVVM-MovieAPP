@@ -30,10 +30,8 @@ class WatchListViewModel {
             if let data = document.data() {
                 for movieId in data.keys {
                     self.watchListItemIds.append(movieId)
-                    //TODO: fetchitem yapilcak. belki watchListItems her yenilendiginde olur veya burda her deger geldiginde olur veya en son tum arrayi sirayla fetch yapariz api'den.
-                    //completion() verilebilir tableView.reload data icin
                 }
-                completion(self.watchListItemIds) //
+                completion(self.watchListItemIds)
             }
             
         }
@@ -44,13 +42,22 @@ class WatchListViewModel {
         for id in movieId {
             print("id: \(id)")
             WatchListManager.shared.getWatchListItems(id: id) { movies in
-                print("sonuc basarili: \(movies?.title)")
                 self.watchListItems.append(movies!)
                 completion(movies)
             } onError: { error in
                 print("sonuc basarisiz: \(error)")
             }
 
+        }
+    }
+    
+    func deleteItemFromFirestore(movieId: String, completion: @escaping () -> ()) {
+        let userRef = db.collection("users").document(currentUserUid ?? "undefined user")
+        userRef.updateData([movieId : FieldValue.delete()]) { error in
+            if let error = error {
+                print("WLVM deleteItemFromFirestore error: \(error)")
+            }
+            completion()
         }
     }
     

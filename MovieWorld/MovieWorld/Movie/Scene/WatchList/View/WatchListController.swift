@@ -21,7 +21,6 @@ class WatchListController: UIViewController {
             //TODO: call api
             self.viewModel.getWatchListFromAPI(movieId: movieIDs) { movie in
                 self.tableView.reloadData()
-                print("movie:::: \(movie?.id)")
             }
         }
     }
@@ -53,5 +52,14 @@ extension WatchListController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 166
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteItemFromFirestore(movieId: viewModel.watchListItemIds[indexPath.row]) {
+                self.tableView.reloadData()
+                print("data reloaded")
+            }
+        }
     }
 }
