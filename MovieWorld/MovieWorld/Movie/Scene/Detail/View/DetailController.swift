@@ -42,7 +42,7 @@ class DetailController: UIViewController {
   
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         viewModel.addMovieToWatchList(movieId: selectedMovieId) { boolResult in
-            self.viewModel.watchLaterButtonDecision(result: boolResult) { imageName in
+            self.viewModel.watchLaterButtonDecision(result: boolResult) { (imageName: String) in
                 self.favoriteButton.setImage(UIImage(systemName: imageName), for: .normal)
             }
         }
@@ -60,7 +60,7 @@ class DetailController: UIViewController {
     func didMovieAddedToWatchList() {
         
         print(selectedMovieId)
-        viewModel.didMovieAddedToWatchLaterList(movieId: selectedMovieId) { result in
+        viewModel.didMovieAddedToWatchLaterList(movieId: selectedMovieId) { (result: Bool) in
             if result == true {
                 self.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             } else {

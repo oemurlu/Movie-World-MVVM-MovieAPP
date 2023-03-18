@@ -53,7 +53,7 @@ extension SearchController: UISearchBarDelegate {
         viewModel.text = searchText
         viewModel.getMovies()
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.collectionView.reloadData()            
         }
     }
 }

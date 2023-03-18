@@ -58,3 +58,9 @@ class DetailViewModel {
         }
     }
 }
+
+
+
+
+
+
