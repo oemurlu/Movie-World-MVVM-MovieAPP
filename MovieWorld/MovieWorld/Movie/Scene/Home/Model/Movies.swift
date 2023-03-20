@@ -45,6 +45,7 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
     }
     
     var verticalCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
+    
     var searchCellImage: String { "https://image.tmdb.org/t/p/original/\(posterPath ?? "")" }
     
     // - detail controller protocol

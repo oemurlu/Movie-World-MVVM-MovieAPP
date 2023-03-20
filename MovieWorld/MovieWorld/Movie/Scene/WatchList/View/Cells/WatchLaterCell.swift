@@ -24,10 +24,16 @@ class WatchLaterCell: UITableViewCell {
     @IBOutlet weak var movieRating: UILabel!
     
     func configure(data: WatchLaterCellProtocol) {
-        movieImage.sd_setImage(with: URL(string: data.watchLaterImage))
+        if data.watchLaterImage == "https://image.tmdb.org/t/p/original/" {
+            movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
+        } else {
+            movieImage.sd_setImage(with: URL(string: data.watchLaterImage))
+        }
+        
         movieTitle.text = data.watchLaterTitle
         movieRelease.text = data.watchLaterRelease
         movieRating.text = data.watchLaterRating
+        movieImage.layer.cornerRadius = 8
     }
     
 }

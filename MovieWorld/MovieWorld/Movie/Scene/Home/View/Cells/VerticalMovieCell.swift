@@ -18,7 +18,11 @@ class VerticalMovieCell: UICollectionViewCell {
 
     
     func configure(data: VerticalMovieCellProtocol) {
-        movieImage.sd_setImage(with: URL(string: data.verticalCellImage))
+        if data.verticalCellImage == "https://image.tmdb.org/t/p/original/" {
+            movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
+        } else {
+            movieImage.sd_setImage(with: URL(string: data.verticalCellImage))
+        }
         movieImage.layer.cornerRadius = 20
     }
 

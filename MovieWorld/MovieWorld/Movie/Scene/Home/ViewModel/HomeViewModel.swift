@@ -13,9 +13,6 @@ class HomeViewModel {
     
     var movieItems = [MovieResult]()
     var nowPlayingItemsForHeader = [MovieResult]()
-//    var popularItems = [MovieResult]()
-//    var topRatedItems = [MovieResult]()
-//    var upcomingItems = [MovieResult]()
     
     var successCallback: (() -> ())?
 

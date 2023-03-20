@@ -52,7 +52,6 @@ struct MovieDetailModel: Codable, WatchLaterCellProtocol {
         let formatted = String(format: "%.1f", voteAverage ?? 0)
         return "⭐️\(formatted)"
     }
-
 }
 
 // MARK: - Genre

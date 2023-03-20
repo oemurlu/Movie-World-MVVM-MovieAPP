@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,18 +31,18 @@
                             <constraint firstAttribute="height" constant="20" id="ft2-y8-k7C"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="white"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="recep ivedik harikalar diyarinda keloglana karsi" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQ4-ix-RpX">
                         <rect key="frame" x="121.33333333333333" y="45.666666666666657" width="131.33333333333337" height="54"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="white"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.clock.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="adN-g9-mHy">
                         <rect key="frame" x="119.99999999999999" y="109.33333333333334" width="17.333333333333329" height="14.666666666666671"/>
-                        <color key="tintColor" systemColor="labelColor"/>
+                        <color key="tintColor" name="white"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="adN-g9-mHy" secondAttribute="height" multiplier="1:1" id="0HA-mp-0BF"/>
                             <constraint firstAttribute="width" constant="16" id="mjr-3T-dPl"/>
@@ -50,13 +51,12 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zv6-r5-Mh8">
                         <rect key="frame" x="141.33333333333334" y="107.66666666666667" width="33" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="white"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" systemColor="systemGray4Color"/>
             <constraints>
                 <constraint firstItem="adN-g9-mHy" firstAttribute="leading" secondItem="pQ4-ix-RpX" secondAttribute="leading" id="2pa-jp-8AL"/>
                 <constraint firstItem="tQG-OT-Yl6" firstAttribute="top" secondItem="pQ4-ix-RpX" secondAttribute="top" id="50m-D1-iiH"/>
@@ -84,14 +84,11 @@
     </objects>
     <resources>
         <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="white">
+            <color red="0.90754222869873047" green="0.96886938810348511" blue="0.9524308443069458" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

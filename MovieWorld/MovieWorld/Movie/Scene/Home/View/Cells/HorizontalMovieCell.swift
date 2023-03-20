@@ -28,11 +28,14 @@ class HorizontalMovieCell: UICollectionViewCell {
     }
     
     func configure(data: HorizontalMovieCellProtocol) {
+        if data.horizontalCellImage == "https://image.tmdb.org/t/p/original/" {
+            movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
+        } else {
+            movieImage.sd_setImage(with: URL(string: data.horizontalCellImage))
+        }
         titleLabel.text = data.horizontalCellTitle
-        movieImage.sd_setImage(with: URL(string: data.horizontalCellImage))
         ratingLabel.text = "⭐️\(data.horizontalCellRating)"
         releaseLabel.text = data.horizontalCellRelease
+        movieImage.layer.cornerRadius = 8
     }
-    
-
 }

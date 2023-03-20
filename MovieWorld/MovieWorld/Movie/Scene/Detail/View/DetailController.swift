@@ -49,7 +49,13 @@ class DetailController: UIViewController {
     }
     
     func configure(data: DetailControllerProtocol) {
-        movieImage.sd_setImage(with: URL(string: data.detailViewImage))
+        
+        if data.detailViewImage == "https://image.tmdb.org/t/p/original/" {
+            movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
+        } else {
+            movieImage.sd_setImage(with: URL(string: data.detailViewImage))
+        }
+
         movieTitle.text = data.detailViewTitle
         movieRelease.text = data.detailViewRelease
         movieOverview.text = data.detailViewOverview

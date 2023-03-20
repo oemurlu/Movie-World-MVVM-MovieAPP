@@ -50,7 +50,9 @@ class SearchController: UIViewController {
 
 extension SearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.text = searchText
+        let stringWithoutSpaces = searchText.replacingOccurrences(of: " ", with: "+")
+        print("trimmed: \(stringWithoutSpaces)")
+        viewModel.text = stringWithoutSpaces
         viewModel.getMovies()
         DispatchQueue.main.async {
             self.collectionView.reloadData()            

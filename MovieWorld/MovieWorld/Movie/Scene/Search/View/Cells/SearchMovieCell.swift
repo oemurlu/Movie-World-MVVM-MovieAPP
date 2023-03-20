@@ -17,7 +17,11 @@ class SearchMovieCell: UICollectionViewCell {
     @IBOutlet weak var movieImage: UIImageView!
     
     func configure(data: SearchMovieCellProtocol) {
-        movieImage.sd_setImage(with: URL(string: data.searchCellImage))
+        if data.searchCellImage == "https://image.tmdb.org/t/p/original/" {
+            movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
+        } else {
+            movieImage.sd_setImage(with: URL(string: data.searchCellImage))
+        }
     }
 
 }
