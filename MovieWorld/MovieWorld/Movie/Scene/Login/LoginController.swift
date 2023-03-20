@@ -23,8 +23,16 @@ class LoginController: UIViewController {
 
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         viewModel.checkUserAuth(email: emailTextField.text!, password: passwordTextField.text!) {
-            let vc = self.viewModel.loadTabBar()
-            self.show(vc, sender: nil)
+            guard let tabbar = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as? UITabBarController else { return }
+//            self.show(tabbar, sender: nil)
+            tabbar.modalPresentationStyle = .fullScreen
+            self.present(tabbar, animated: true) {
+                self.removeFromParent()
+            }
         }
+    }
+    
+    deinit {
+        print("login vc deinited")
     }
 }

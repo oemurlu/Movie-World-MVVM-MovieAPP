@@ -31,6 +31,15 @@ class HomeController: UIViewController {
         self.presentPanModal(controller)
     }
     
+    @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "\(FilterController.self)") as! FilterController
+        controller.selectionCallback = { category in
+            self.viewModel.getCategory(type: category)
+        }
+        self.presentPanModal(controller)
+    }
+    
+    
     private func collectionSetup() {
         collectionView.register(UINib(nibName: "\(HorizontalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(HorizontalMovieCell.self)")
         
@@ -38,8 +47,8 @@ class HomeController: UIViewController {
     }
     
     private func viewModelConfiguration() {
-        viewModel.getNowPlaying()
-        viewModel.getPopular()
+        viewModel.getCategory(type: .upcoming)
+        viewModel.getNowPlayingForHeader()
         viewModel.successCallback = { [weak self] in
             self?.collectionView.reloadData()
         }
@@ -59,18 +68,18 @@ class HomeController: UIViewController {
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.popularItems.count
+        return viewModel.movieItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(HorizontalMovieCell.self)", for: indexPath) as! HorizontalMovieCell
-        cell.configure(data: viewModel.popularItems[indexPath.row])
+        cell.configure(data: viewModel.movieItems[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = loadDetailVC()
-        vc.configure(data: viewModel.popularItems[indexPath.row])
+        vc.configure(data: viewModel.movieItems[indexPath.row])
         show(vc, sender: nil)
     }
     
@@ -84,7 +93,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)", for: indexPath) as! HomeHeader
-        header.configure(data: viewModel.nowPlayingItems)
+        header.configure(data: viewModel.nowPlayingItemsForHeader)
         return header
     }
 }
