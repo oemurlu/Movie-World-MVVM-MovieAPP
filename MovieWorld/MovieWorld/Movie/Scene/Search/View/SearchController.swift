@@ -22,6 +22,11 @@ class SearchController: UIViewController {
         collectionFlowSetup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.getMovies()
+
+    }
+    
     func collectionSetup() {
         collectionView.register(UINib(nibName: "\(SearchMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SearchMovieCell.self)")
     }
@@ -51,7 +56,6 @@ class SearchController: UIViewController {
 extension SearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let stringWithoutSpaces = searchText.replacingOccurrences(of: " ", with: "+")
-        print("trimmed: \(stringWithoutSpaces)")
         viewModel.text = stringWithoutSpaces
         viewModel.getMovies()
         DispatchQueue.main.async {

@@ -22,16 +22,10 @@ class HomeController: UIViewController {
         viewModelConfiguration()
         tabBarSetup()
     }
-    
-    @IBAction func showFilterButtonPressed(_ sender: UIBarButtonItem) {
-        let controller = storyboard?.instantiateViewController(withIdentifier: "\(FilterController.self)") as! FilterController
-        controller.selectionCallback = { category in
-            self.viewModel.getCategory(type: category)
-        }
-        self.presentPanModal(controller)
-    }
+
     
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
+
         let controller = storyboard?.instantiateViewController(withIdentifier: "\(FilterController.self)") as! FilterController
         controller.selectionCallback = { category in
             self.viewModel.getCategory(type: category)
@@ -51,6 +45,10 @@ class HomeController: UIViewController {
         viewModel.getNowPlayingForHeader()
         viewModel.successCallback = { [weak self] in
             self?.collectionView.reloadData()
+            
+            //scroll to top
+            let topIndexPath = IndexPath(item: -1, section: 0)
+            self?.collectionView.scrollToItem(at: topIndexPath, at: .top, animated: true)
         }
     }
     
@@ -96,7 +94,12 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         header.configure(data: viewModel.nowPlayingItemsForHeader)
         return header
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
 }
+
 
 
 

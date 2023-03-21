@@ -15,7 +15,19 @@ class SearchViewModel {
     var successCallback: (() -> ())?
     var textIsEmptyCallback: (() -> ())?
     var searchMovieItems = [MovieResult]()
-    var text = ""
+
+    private var _text = "A" // private bir değişken ekliyoruz
+        var text: String {
+            get {
+                return _text
+            }
+            set {
+                _text = newValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                if _text.isEmpty {
+                    _text = "A" // text boş ise "A" atanacak
+                }
+            }
+        }
     
     func getMovies() {
         manager.getSearchResults(text: text) { movies in

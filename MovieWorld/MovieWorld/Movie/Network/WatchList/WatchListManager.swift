@@ -23,5 +23,4 @@ class WatchListManager {
                 print("osman getDetailItemsError: \(error) ")
             }
         }
-    
 }
