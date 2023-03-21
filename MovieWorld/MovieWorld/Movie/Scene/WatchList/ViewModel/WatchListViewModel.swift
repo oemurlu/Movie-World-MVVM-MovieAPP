@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import UIKit.UIStoryboard
 
 class WatchListViewModel {
     
@@ -59,5 +60,15 @@ class WatchListViewModel {
             completion()
         }
     }
+    
+    func signOut(completion: @escaping (Bool) -> ()) {
+            do {
+                try Auth.auth().signOut()
+                completion(true)
+            } catch let error {
+                completion(false)
+                print("WLVM signOut error: \(error)")
+            }
+        }
     
 }

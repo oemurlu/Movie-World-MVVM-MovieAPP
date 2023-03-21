@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="GX1-zf-gtV">
             <objects>
-                <viewController id="Xbg-2h-Bep" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeVC" id="Xbg-2h-Bep" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s2v-aC-gha">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,7 +506,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wk4-Tq-7IO">
-                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <color key="backgroundColor" name="darkblue"/>
                                 <color key="separatorColor" name="red"/>
                                 <sections/>
@@ -515,14 +515,31 @@
                                     <outlet property="delegate" destination="DV2-mj-kM4" id="gXR-f7-WkN"/>
                                 </connections>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAR-Gr-UYu">
+                                <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                                <color key="barTintColor" name="darkblue"/>
+                                <items>
+                                    <navigationItem title="Watch List" id="8Gq-S5-MyD">
+                                        <barButtonItem key="rightBarButtonItem" image="circle.slash" catalog="system" id="FyC-hx-oLN">
+                                            <color key="tintColor" name="red"/>
+                                            <connections>
+                                                <action selector="signOutPressed:" destination="DV2-mj-kM4" id="hyi-Tt-2oz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="awU-wa-wiO"/>
                         <color key="backgroundColor" name="darkblue"/>
                         <constraints>
                             <constraint firstItem="awU-wa-wiO" firstAttribute="trailing" secondItem="wk4-Tq-7IO" secondAttribute="trailing" id="5wX-rv-mdF"/>
-                            <constraint firstItem="wk4-Tq-7IO" firstAttribute="top" secondItem="awU-wa-wiO" secondAttribute="top" id="hxb-Fp-xu7"/>
+                            <constraint firstItem="xAR-Gr-UYu" firstAttribute="trailing" secondItem="awU-wa-wiO" secondAttribute="trailing" id="HV2-JG-NIc"/>
+                            <constraint firstItem="xAR-Gr-UYu" firstAttribute="top" secondItem="awU-wa-wiO" secondAttribute="top" id="cuB-ux-Vh7"/>
+                            <constraint firstItem="wk4-Tq-7IO" firstAttribute="top" secondItem="xAR-Gr-UYu" secondAttribute="bottom" id="hxb-Fp-xu7"/>
                             <constraint firstItem="wk4-Tq-7IO" firstAttribute="leading" secondItem="awU-wa-wiO" secondAttribute="leading" id="lGe-Kt-EXJ"/>
                             <constraint firstItem="awU-wa-wiO" firstAttribute="bottom" secondItem="wk4-Tq-7IO" secondAttribute="bottom" id="xHF-9A-gud"/>
+                            <constraint firstItem="xAR-Gr-UYu" firstAttribute="leading" secondItem="awU-wa-wiO" secondAttribute="leading" id="xt9-H2-31W"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Watch List" image="list.bullet.clipboard" catalog="system" id="2kQ-yO-M2h"/>
@@ -555,6 +572,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle.slash" catalog="system" width="128" height="123"/>
         <image name="gs" width="1331" height="2048"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="house" catalog="system" width="128" height="104"/>
