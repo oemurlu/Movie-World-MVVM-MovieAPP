@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchController: UIViewController {
     //MARK: - Properties
@@ -21,6 +22,11 @@ class SearchController: UIViewController {
         collectionSetup()
         viewModelConfiguration()
         collectionFlowSetup()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
     }
     
     override func viewDidAppear(_ animated: Bool) {

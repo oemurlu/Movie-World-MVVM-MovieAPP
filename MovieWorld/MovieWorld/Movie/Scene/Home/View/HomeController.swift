@@ -24,6 +24,11 @@ class HomeController: UIViewController {
         viewModelConfiguration()
         tabBarSetup()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
+    }
 
     //MARK: - Interaction handlers
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {

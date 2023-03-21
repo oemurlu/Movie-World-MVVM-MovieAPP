@@ -39,6 +39,11 @@ class DetailController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
+    }
+    
     //MARK: - Interaction handlers
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         viewModel.addMovieToWatchList(movieId: selectedMovieId) { boolResult in
