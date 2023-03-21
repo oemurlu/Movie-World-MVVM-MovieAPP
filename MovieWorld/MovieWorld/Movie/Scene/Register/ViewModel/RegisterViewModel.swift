@@ -11,14 +11,14 @@ import FirebaseFirestore
 
 class RegisterViewModel {
     
+    //MARK: - Properties
     private let db = Firestore.firestore()
     private var authUser: FirebaseAuth.User? {
         Auth.auth().currentUser
     }
     private var userUid = ""
     
-    
-    
+    //MARK: - Functions
     func loadLoginVC() -> LoginController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "\(LoginController.self)") as! LoginController
@@ -38,9 +38,7 @@ class RegisterViewModel {
                         print("RVM changeRequest error: \(error)")
                     }
                 })
-                
                 self.userUid = (authResult?.user.uid)!
-                
                 completion()
             }
         }

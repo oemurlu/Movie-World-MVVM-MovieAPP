@@ -8,12 +8,13 @@
 import UIKit
 
 class SearchController: UIViewController {
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
+    //MARK: - Properties
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var collectionView: UICollectionView!
     
     private let viewModel = SearchViewModel()
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,12 +27,12 @@ class SearchController: UIViewController {
         viewModel.getMovies()
 
     }
-    
-    func collectionSetup() {
+    //MARK: - Functions
+    private func collectionSetup() {
         collectionView.register(UINib(nibName: "\(SearchMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(SearchMovieCell.self)")
     }
     
-    func collectionFlowSetup() {
+    private func collectionFlowSetup() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 5
@@ -39,7 +40,7 @@ class SearchController: UIViewController {
         collectionView.setCollectionViewLayout(layout, animated: true)
     }
     
-    func viewModelConfiguration() {
+    private func viewModelConfiguration() {
         viewModel.successCallback = { [weak self] in
             self?.collectionView.reloadData()
         }
@@ -52,7 +53,7 @@ class SearchController: UIViewController {
     }
 }
 
-
+//MARK: - Extensions
 extension SearchController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let stringWithoutSpaces = searchText.replacingOccurrences(of: " ", with: "+")

@@ -14,14 +14,15 @@ protocol VerticalMovieCellProtocol {
 
 class VerticalMovieCell: UICollectionViewCell {
     
-    @IBOutlet weak var movieImage: UIImageView!
+    //MARK: - Properties
+    @IBOutlet private weak var movieImage: UIImageView!
 
-    
+    //MARK: - Functions
     func configure(data: VerticalMovieCellProtocol) {
         if data.verticalCellImage == "https://image.tmdb.org/t/p/original/" {
             movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
         } else {
-            movieImage.sd_setImage(with: URL(string: data.verticalCellImage))
+            movieImage.sd_setImage(with: URL(string: data.verticalCellImage), placeholderImage: UIImage(systemName: "photo.on.rectangle.angled"))
         }
         movieImage.layer.cornerRadius = 20
     }

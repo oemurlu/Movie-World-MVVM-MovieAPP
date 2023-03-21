@@ -9,8 +9,10 @@ import UIKit
 
 class FilterTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var filterTitleLabel: UILabel!
+    //MARK: - Properties
+    @IBOutlet private weak var filterTitleLabel: UILabel!
     
+    //MARK: - Functions
     func configure(title: String) {
         filterTitleLabel.text = title
     }

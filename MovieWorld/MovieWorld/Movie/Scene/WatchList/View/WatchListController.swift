@@ -8,11 +8,12 @@
 import UIKit
 
 class WatchListController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+    //MARK: - Properties
+    @IBOutlet private weak var tableView: UITableView!
     
     private let viewModel = WatchListViewModel()
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +26,7 @@ class WatchListController: UIViewController {
         }
     }
     
+    //MARK: - Interaction handlers
     @IBAction func signOutPressed(_ sender: UIBarButtonItem) {
         askForSignOut { response in
             if response {
@@ -39,6 +41,7 @@ class WatchListController: UIViewController {
         }
     }
     
+    //MARK: - Functions
     func askForSignOut(completion: @escaping(Bool) -> () ) {
         // Create you actionsheet - preferredStyle: .actionSheet
         let actionSheet = UIAlertController(title: "Are you sure you want to log out?", message: nil, preferredStyle: .actionSheet)
@@ -52,7 +55,6 @@ class WatchListController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             print("didPress cancel")
             completion(false)
-
         }
         
         // Add the actions to your actionSheet
@@ -69,17 +71,15 @@ class WatchListController: UIViewController {
         self.present(vc, animated: true) {
             self.removeFromParent()
         }
-        
     }
-    
     
     func setupTableView() {
         tableView.register(UINib(nibName: "\(WatchLaterCell.self)", bundle: nil), forCellReuseIdentifier: "\(WatchLaterCell.self)")
     }
 }
 
+//MARK: - Extensions
 extension WatchListController: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.watchListItems.count
     }

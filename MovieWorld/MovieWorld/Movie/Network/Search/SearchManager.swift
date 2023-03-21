@@ -13,7 +13,6 @@ protocol SearchManagerProtocol {
 }
 
 class SearchManager: SearchManagerProtocol {
-    
     static let shared = SearchManager()
     
     func getSearchResults(text: String, onSuccess: @escaping (Movies?) -> (), onError: @escaping(AFError) -> ()) {

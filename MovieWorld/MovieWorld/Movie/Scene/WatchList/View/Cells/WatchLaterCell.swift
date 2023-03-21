@@ -17,17 +17,18 @@ protocol WatchLaterCellProtocol {
 }
 
 class WatchLaterCell: UITableViewCell {
-
+    //MARK: - Properties
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieRelease: UILabel!
     @IBOutlet weak var movieRating: UILabel!
     
+    //MARK: - Functions
     func configure(data: WatchLaterCellProtocol) {
         if data.watchLaterImage == "https://image.tmdb.org/t/p/original/" {
             movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
         } else {
-            movieImage.sd_setImage(with: URL(string: data.watchLaterImage))
+            movieImage.sd_setImage(with: URL(string: data.watchLaterImage), placeholderImage: UIImage(systemName: "photo.on.rectangle.angled"))
         }
         
         movieTitle.text = data.watchLaterTitle

@@ -57,7 +57,10 @@ struct MovieResult: Codable, HorizontalMovieCellProtocol, VerticalMovieCellProto
         return String(releaseDate?.prefix(prefixLength) ?? "")
         
     }
-    var detailViewRating: String { "\(voteAverage ?? 0)" }
+    var detailViewRating: String {
+        String(format: "%.1f", voteAverage ?? 0)
+    }
+    
     var detailViewOverview: String { overview ?? "" }
     var detailViewMovieId: Int { id ?? 0}
 

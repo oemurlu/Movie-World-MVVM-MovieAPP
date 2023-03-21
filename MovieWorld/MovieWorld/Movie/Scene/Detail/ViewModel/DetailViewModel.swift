@@ -11,10 +11,11 @@ import FirebaseFirestore
 
 
 class DetailViewModel {
-    
+    //MARK: - Properties
     private let db = Firestore.firestore()
     private let currentUserUid = Auth.auth().currentUser?.uid
 
+    //MARK: - Functions
     func addMovieToWatchList(movieId: Int, completion: @escaping (Bool) -> ()) {
         let userRef = db.collection("users").document(currentUserUid ?? "undefined user")
         

@@ -9,20 +9,24 @@ import UIKit
 
 class HomeHeader: UICollectionReusableView {
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    //MARK: - Properties
+    @IBOutlet private weak var collectionView: UICollectionView!
     
-    var items = [MovieResult]()
+    private var items = [MovieResult]()
     
+    //MARK: - Life cycle
     override func layoutSubviews() {
         collectionView.register(UINib(nibName: "\(VerticalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(VerticalMovieCell.self)")
     }
     
+    //MARK: - Functions
     func configure(data: [MovieResult]) {
         self.items = data
         collectionView.reloadData()
     }
 }
 
+//MARK: - Extensions
 extension HomeHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return items.count
@@ -40,6 +44,5 @@ extension HomeHeader: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         let width = height * 2 / 3
         return CGSize(width: width, height: height)
     }
-    
 }
 

@@ -19,6 +19,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EVT-6q-kAo">
                         <rect key="frame" x="16" y="8" width="100" height="150"/>
+                        <color key="tintColor" name="white"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="EVT-6q-kAo" secondAttribute="height" multiplier="2:3" id="naw-Wz-f92"/>
                         </constraints>
@@ -74,7 +75,10 @@
     </objects>
     <resources>
         <namedColor name="darkblue">
-            <color red="0.094117647058823528" green="0.10196078431372549" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.093999996781349182" green="0.10199999809265137" blue="0.12200000137090683" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="white">
+            <color red="0.90799999237060547" green="0.96899998188018799" blue="0.95200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

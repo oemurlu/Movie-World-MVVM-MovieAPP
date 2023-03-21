@@ -13,14 +13,15 @@ protocol SearchMovieCellProtocol {
 }
 
 class SearchMovieCell: UICollectionViewCell {
-
-    @IBOutlet weak var movieImage: UIImageView!
+    //MARK: - Properties
+    @IBOutlet private weak var movieImage: UIImageView!
     
+    //MARK: - Functions
     func configure(data: SearchMovieCellProtocol) {
         if data.searchCellImage == "https://image.tmdb.org/t/p/original/" {
             movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
         } else {
-            movieImage.sd_setImage(with: URL(string: data.searchCellImage))
+            movieImage.sd_setImage(with: URL(string: data.searchCellImage), placeholderImage: UIImage(systemName: "photo.on.rectangle.angled"))
         }
     }
 

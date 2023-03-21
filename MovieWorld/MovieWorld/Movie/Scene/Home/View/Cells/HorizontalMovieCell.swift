@@ -17,21 +17,23 @@ protocol HorizontalMovieCellProtocol {
 
 class HorizontalMovieCell: UICollectionViewCell {
 
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var releaseLabel: UILabel!
+    //MARK: - Properties
+    @IBOutlet private weak var movieImage: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var releaseLabel: UILabel!
     
+    //MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
+    //MARK: - Functions
     func configure(data: HorizontalMovieCellProtocol) {
         if data.horizontalCellImage == "https://image.tmdb.org/t/p/original/" {
             movieImage.image = UIImage(systemName: "photo.on.rectangle.angled")
         } else {
-            movieImage.sd_setImage(with: URL(string: data.horizontalCellImage))
+            movieImage.sd_setImage(with: URL(string: data.horizontalCellImage), placeholderImage: UIImage(systemName: "photo.on.rectangle.angled"))
         }
         titleLabel.text = data.horizontalCellTitle
         ratingLabel.text = "⭐️\(data.horizontalCellRating)"

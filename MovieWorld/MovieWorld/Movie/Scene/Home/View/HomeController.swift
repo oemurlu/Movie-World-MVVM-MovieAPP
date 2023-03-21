@@ -11,10 +11,12 @@ import SDWebImage
 
 class HomeController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    //MARK: - Properties
+    @IBOutlet private weak var collectionView: UICollectionView!
     
-    let viewModel = HomeViewModel()
+    private let viewModel = HomeViewModel()
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +25,7 @@ class HomeController: UIViewController {
         tabBarSetup()
     }
 
-    
+    //MARK: - Interaction handlers
     @IBAction func filterButtonPressed(_ sender: UIBarButtonItem) {
 
         let controller = storyboard?.instantiateViewController(withIdentifier: "\(FilterController.self)") as! FilterController
@@ -33,7 +35,7 @@ class HomeController: UIViewController {
         self.presentPanModal(controller)
     }
     
-    
+    //MARK: - Functions
     private func collectionSetup() {
         collectionView.register(UINib(nibName: "\(HorizontalMovieCell.self)", bundle: nil), forCellWithReuseIdentifier: "\(HorizontalMovieCell.self)")
         
@@ -58,13 +60,12 @@ class HomeController: UIViewController {
         return vc
     }
     
-    func tabBarSetup() {
+    private func tabBarSetup() {
         self.tabBarController?.navigationItem.hidesBackButton = true
     }
 }
-
+//MARK: - Extensions
 extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.movieItems.count
     }
@@ -93,10 +94,6 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "\(HomeHeader.self)", for: indexPath) as! HomeHeader
         header.configure(data: viewModel.nowPlayingItemsForHeader)
         return header
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
     }
 }
 

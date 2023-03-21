@@ -11,13 +11,14 @@ import FirebaseAuth
 import UIKit.UIStoryboard
 
 class WatchListViewModel {
-    
+    //MARK: - Properties
     private let db = Firestore.firestore()
     private let currentUserUid = Auth.auth().currentUser?.uid
 
     var watchListItemIds = [String]()
     var watchListItems = [MovieDetailModel]()
     
+    //MARK: - Functions
     func listener(completion: @escaping ([String]) -> ()) {
         let userRef = db.collection("users").document(currentUserUid  ?? "undefined user")
         userRef.addSnapshotListener { documentSnapshot, error in
@@ -47,7 +48,6 @@ class WatchListViewModel {
             } onError: { error in
                 print("sonuc basarisiz: \(error)")
             }
-
         }
     }
     
@@ -70,5 +70,4 @@ class WatchListViewModel {
                 print("WLVM signOut error: \(error)")
             }
         }
-    
 }

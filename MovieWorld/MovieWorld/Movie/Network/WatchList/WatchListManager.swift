@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class WatchListManager {
-    
     static let shared = WatchListManager()
     
     func getWatchListItems(id: String, onSuccess: @escaping (MovieDetailModel?) -> (), onError: @escaping (AFError) -> ()) {

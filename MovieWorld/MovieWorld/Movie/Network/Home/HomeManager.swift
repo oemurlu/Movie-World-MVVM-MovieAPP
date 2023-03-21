@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 protocol HomeManagerProtocol {
-//    func getCategoryMovies
     func getMovies(type: MovieCategory, onSuccess: @escaping(Movies?) -> (), onError: @escaping(AFError) -> ())
 }
 

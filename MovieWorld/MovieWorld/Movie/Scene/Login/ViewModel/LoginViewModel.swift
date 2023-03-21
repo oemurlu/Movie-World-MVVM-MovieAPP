@@ -9,7 +9,7 @@ import UIKit.UIStoryboard
 import Firebase
 
 class LoginViewModel {
-    
+    //MARK: - Functions
     func checkUserAuth(email: String, password: String, completion: @escaping () -> () ) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -23,9 +23,6 @@ class LoginViewModel {
     func loadTabBar() -> UITabBarController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-//        vc.loadViewIfNeeded()
         return vc
     }
-    
-    
 }

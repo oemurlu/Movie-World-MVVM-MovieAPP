@@ -19,13 +19,13 @@ protocol DetailControllerProtocol {
 }
 
 class DetailController: UIViewController {
-    
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var movieTitle: UILabel!
-    @IBOutlet weak var movieRelease: UILabel!
-    @IBOutlet weak var movieOverview: UITextView!
-    @IBOutlet weak var movieRating: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
+    //MARK: - Properties
+    @IBOutlet private weak var movieImage: UIImageView!
+    @IBOutlet private weak var movieTitle: UILabel!
+    @IBOutlet private weak var movieRelease: UILabel!
+    @IBOutlet private weak var movieOverview: UITextView!
+    @IBOutlet private weak var movieRating: UILabel!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     private let viewModel = DetailViewModel()
     private var selectedMovieId = 0 {
@@ -34,12 +34,12 @@ class DetailController: UIViewController {
         }
     }
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
     }
     
-  
+    //MARK: - Interaction handlers
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
         viewModel.addMovieToWatchList(movieId: selectedMovieId) { boolResult in
             self.viewModel.watchLaterButtonDecision(result: boolResult) { (imageName: String) in
@@ -48,6 +48,7 @@ class DetailController: UIViewController {
         }
     }
     
+    //MARK: - Functions
     func configure(data: DetailControllerProtocol) {
         
         if data.detailViewImage == "https://image.tmdb.org/t/p/original/" {
@@ -63,9 +64,7 @@ class DetailController: UIViewController {
         selectedMovieId = data.detailViewMovieId
     }
     
-    func didMovieAddedToWatchList() {
-        
-        print(selectedMovieId)
+    private func didMovieAddedToWatchList() {
         viewModel.didMovieAddedToWatchLaterList(movieId: selectedMovieId) { (result: Bool) in
             if result == true {
                 self.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -73,7 +72,6 @@ class DetailController: UIViewController {
                 self.favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
             }
         }
-        
     }
 }
 

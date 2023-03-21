@@ -9,13 +9,13 @@ import Foundation
 
 class HomeViewModel {
     
+    //MARK: - Properties
     let manager = HomeManager.shared
-    
     var movieItems = [MovieResult]()
     var nowPlayingItemsForHeader = [MovieResult]()
-    
     var successCallback: (() -> ())?
 
+    //MARK: - Functions
     func getCategory(type: MovieCategory) {
         manager.getMovies(type: type) { movies in
             if let movies = movies {

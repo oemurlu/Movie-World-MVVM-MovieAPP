@@ -8,6 +8,7 @@
 import Foundation
 
 class FilterViewModel {
+    //MARK: - Properties
     var items = [
         FilterModel(title: "Popular", type: .popular),
         FilterModel(title: "Top Rated", type: .topRated),

@@ -10,25 +10,26 @@ import PanModal
 
 class FilterController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    //MARK: - Properties
+    @IBOutlet private weak var tableView: UITableView!
     
-    let viewModel = FilterViewModel()
-    
+    private let viewModel = FilterViewModel()
     var selectionCallback: ((MovieCategory) -> ())?
     
+    //MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         registerTableView()
     }
     
-    func registerTableView() {
+    //MARK: - Functions
+    private func registerTableView() {
         tableView.register(UINib(nibName: "\(FilterTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "\(FilterTableViewCell.self)")
     }
 }
 
+//MARK: - Extensions
 extension FilterController: UITableViewDataSource, UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.items.count
     }

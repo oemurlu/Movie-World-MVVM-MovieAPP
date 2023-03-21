@@ -18,7 +18,4 @@ class NetworkHelper {
     func requestUrl(url: String) -> String {
         return "\(NetworkEndPoint.BASE_URL.rawValue)\(url)\(NetworkEndPoint.API_KEY.rawValue)"
     }
-    
 }
-
-//https://api.themoviedb.org/3/movie/550?api_key=bc2c270a5fe89e16e06dbf88dd4cea81
