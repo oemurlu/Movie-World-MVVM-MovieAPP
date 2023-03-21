@@ -31,12 +31,13 @@ This is a simple movie app named Movie World. You can see the details, video and
 - Firebase
 - Alamofire
 - SDWebImage
+- PanModal
 
 
 ## :hammer: Tools
 
 * [The Movie Database](https://www.themoviedb.org)
-* Swift Package Manager (SDWebImage, Alamofire, FirebaseAuth, FirestoreDatabase)
+* Swift Package Manager (SDWebImage, Alamofire, PanModal, FirebaseAuth, FirestoreDatabase)
 
 ## :movie_camera: Video
 
